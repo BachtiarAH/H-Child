@@ -302,6 +302,9 @@ public class MainView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Login frameLogin = new Login(); 
+                login = frameLogin.getPanel();
+                
                 new MainView().setVisible(true);
             }
         });
