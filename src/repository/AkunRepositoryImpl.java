@@ -26,9 +26,6 @@ public class AkunRepositoryImpl  implements AkunRepositoryInterface{
         conn = db.getDatabase();
     }
     
-    
-    
-    
     @Override
     public boolean register(Akun akun) {
         boolean isRegister = false;

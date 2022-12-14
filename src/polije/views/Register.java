@@ -4,12 +4,15 @@
  */
 package polije.views;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import polije.service.AkunServiceImpl;
+import polije.service.AkunServiceInterface;
 import polije.service.PenggunaServiceImpl;
 import polije.service.PenggunaServiceInterface;
-import repository.PenggunaRepositoryImpl;
 
 /**
  *
@@ -17,21 +20,24 @@ import repository.PenggunaRepositoryImpl;
  */
 public class Register extends javax.swing.JFrame {
 
-  
+    private PenggunaServiceInterface service;
+    private AkunServiceInterface serviceAkun;
+
     /**
      * Creates new form Register
      */
     public Register() {
+        this.service = new PenggunaServiceImpl();
+        this.serviceAkun = new AkunServiceImpl();
+        this.setMaximumSize(new Dimension(1280, 720));
+        this.setResizable(false);
+        this.setBackground(new Color(4, 30, 65));
         initComponents();
-      
-        
     }
-    
-    public JPanel getPanelRegister(){
+
+    public JPanel getPanelRegister() {
         return this.panelRegister;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,10 +58,7 @@ public class Register extends javax.swing.JFrame {
         logoNamalengkap1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ttl_txt = new javax.swing.JTextField();
-        panelNamaLengkap2 = new javax.swing.JPanel();
-        logoNamalengkap2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        umur_txt = new javax.swing.JTextField();
+        jDate_tanggalLahir = new com.toedter.calendar.JDateChooser();
         panelNamaLengkap3 = new javax.swing.JPanel();
         logoNamalengkap3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,10 +80,14 @@ public class Register extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         konfirmasi_txt = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(4, 30, 65));
 
         panelRegister.setBackground(new java.awt.Color(4, 30, 65));
+        panelRegister.setPreferredSize(new java.awt.Dimension(640, 720));
 
         labelRegristasi.setForeground(new java.awt.Color(255, 255, 255));
         labelRegristasi.setText("DAFTAR AKUN");
@@ -123,62 +130,45 @@ public class Register extends javax.swing.JFrame {
 
         jLabel2.setText(":");
 
-        ttl_txt.setBorder(null);
+        ttl_txt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        ttl_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ttl_txtActionPerformed(evt);
+            }
+        });
+
+        jDate_tanggalLahir.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout panelNamaLengkap1Layout = new javax.swing.GroupLayout(panelNamaLengkap1);
         panelNamaLengkap1.setLayout(panelNamaLengkap1Layout);
         panelNamaLengkap1Layout.setHorizontalGroup(
             panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNamaLengkap1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(14, 14, 14)
                 .addComponent(logoNamalengkap1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212))
+                .addGap(90, 90, 90)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDate_tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         panelNamaLengkap1Layout.setVerticalGroup(
             panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNamaLengkap1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoNamalengkap1)
-                    .addComponent(jLabel2)
-                    .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
-        );
-
-        panelNamaLengkap2.setBackground(new java.awt.Color(255, 255, 255));
-
-        logoNamalengkap2.setText("Umur");
-
-        jLabel3.setText(":");
-
-        umur_txt.setBorder(null);
-
-        javax.swing.GroupLayout panelNamaLengkap2Layout = new javax.swing.GroupLayout(panelNamaLengkap2);
-        panelNamaLengkap2.setLayout(panelNamaLengkap2Layout);
-        panelNamaLengkap2Layout.setHorizontalGroup(
-            panelNamaLengkap2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNamaLengkap2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(logoNamalengkap2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(umur_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelNamaLengkap2Layout.setVerticalGroup(
-            panelNamaLengkap2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNamaLengkap2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelNamaLengkap2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoNamalengkap2)
-                    .addComponent(jLabel3)
-                    .addComponent(umur_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7))
+            .addGroup(panelNamaLengkap1Layout.createSequentialGroup()
+                .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNamaLengkap1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(logoNamalengkap1))
+                    .addGroup(panelNamaLengkap1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jDate_tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))))
+                .addGap(8, 8, 8))
         );
 
         panelNamaLengkap3.setBackground(new java.awt.Color(255, 255, 255));
@@ -239,15 +229,15 @@ public class Register extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(logoNamalengkap4)
                 .addGap(24, 24, 24)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(48, 48, 48)
                 .addComponent(jenisKelamin_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(20, 20, 20))
         );
         panelNamaLengkap4Layout.setVerticalGroup(
             panelNamaLengkap4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNamaLengkap4Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelNamaLengkap4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logoNamalengkap4)
                     .addComponent(jLabel5)
@@ -338,7 +328,7 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(konfirmasi_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelNamaLengkap7Layout.setVerticalGroup(
             panelNamaLengkap7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,20 +358,17 @@ public class Register extends javax.swing.JFrame {
                         .addGap(265, 265, 265)
                         .addComponent(labelRegristasi))
                     .addGroup(panelRegisterLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(panelNamaLengkap5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panelNamaLengkap4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelNamaLengkap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnRegister))))
-                .addContainerGap(107, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnRegister)
+                            .addComponent(panelNamaLengkap6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNamaLengkap7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         panelRegisterLayout.setVerticalGroup(
             panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,8 +379,6 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(panelNamaLengkap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(panelNamaLengkap1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(panelNamaLengkap2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(panelNamaLengkap3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -406,23 +391,48 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(panelNamaLengkap7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(btnRegister)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(640, 720));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Logo sunting.JPG"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+            .addComponent(panelRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void alamat_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamat_txtActionPerformed
@@ -434,54 +444,61 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jenisKelamin_comboActionPerformed
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-         // TODO add your handling code here:
-         PenggunaServiceInterface service = new PenggunaServiceImpl();
-           
-         System.out.println("reaasd");
-         PenggunaServiceImpl penggunaServiceInterface = new PenggunaServiceImpl();
-         String nama = namaLengkap_txt.getText();
-         String tempatLahir = ttl_txt.getText();
-         Date dt = jDate_tanggalLahir.getDate();
-         int jkInt = jenisKelamin_combo.getSelectedIndex();
-         String umur = umur_txt.getText();
-         String alamat = alamat_txt.getText();
-         
-         if(nama != "" && tempatLahir != "" && jDate_tanggalLahir.getDate()!=null && jkInt == 0 &&  umur == "" && alamat == "" ){
-              JOptionPane.showMessageDialog(null, "Gagal Daftar Akun , harap isi semua field", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
-         }else{ 
-             try {
-                  java.sql.Date confert = new java.sql.Date(dt.getDate());
-                  int umurInt = Integer.parseInt(umur);
-                  String jkValue ="";
-                  if(jkInt == 1){
-                  jkValue = "Laki-laki";
-                  }else if(jkInt == 2){
-                  jkValue = "Peremupan";
-                  } 
-          boolean isSuces =  service.register(nama, tempatLahir, confert, jkValue, umurInt, alamat);
-          if(isSuces){
-              System.out.println("true");
-             JOptionPane.showMessageDialog(null, "Berhasil Daftar Akun", "Success", JOptionPane.INFORMATION_MESSAGE);
-          }else{
-             System.out.println("asd");
-            // JOptionPane.showMessageDialog(null, "Gagal Mendaftarkan akun", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
-          } 
-             } catch (NumberFormatException e) {
-                              JOptionPane.showMessageDialog(null, "Harap masukan umur dengan angka", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
-
-            }catch(NullPointerException e){
-                                                JOptionPane.showMessageDialog(null, "Harap isi semua data", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
-
-             }
+        // TODO add your handling code here: 
+        String nama = namaLengkap_txt.getText();
+        String tempatLahir = ttl_txt.getText();
+        Date dt = jDate_tanggalLahir.getDate();
+        int jkInt = jenisKelamin_combo.getSelectedIndex();
+        String alamat = alamat_txt.getText();
+        String username = username_txt.getText();
+        String password = password_txt.getText();
+        String konfirmasiPassword = konfirmasi_txt.getText();
+        if (nama != "" && tempatLahir != "" && jDate_tanggalLahir.getDate() != null && jkInt == 0  && alamat == "" && password == "" && username == "" && konfirmasiPassword == "") {
+            JOptionPane.showMessageDialog(null, "Gagal Daftar Akun , harap isi semua field", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+                java.sql.Date confert = new java.sql.Date(dt.getDate());
+                String jkValue = "";
+                if (jkInt == 1) {
+                    jkValue = "Laki-laki";
+                } else if (jkInt == 2) {
+                    jkValue = "Peremupan";
+                }else{
+                    JOptionPane.showMessageDialog(null, "Harap , Pilih Jenis Kelamin Terlebih Dahulu", "Failed", JOptionPane.INFORMATION_MESSAGE);
+                }
+                if (!konfirmasiPassword.equals(password)) {
+                    JOptionPane.showMessageDialog(null, "Gagar Daftar akun , konfirmasi password dan password tidak sama", "Failed", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    boolean findByUsernameResult = this.service.findByUsername(username);
+                    if (findByUsernameResult) {
+                        JOptionPane.showMessageDialog(null, "Gagal daftar akun , username sudah digunakan gunakan yang lain", "Failed", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        boolean isSuces = this.service.register(nama, tempatLahir, confert, jkValue, alamat);
+                        if (isSuces) {
+                            int id = this.service.getLastInsertId();
+                            System.out.println("true");
+                            boolean suscesRegristasiAkun = this.serviceAkun.register(username, password, id);
+                            if (suscesRegristasiAkun) {
+                                JOptionPane.showMessageDialog(null, "Berhasil Daftar Akun", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Gagal Mendaftarkan akun", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Gagal Mendaftarkan akun", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Harap masukan umur dengan angka", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Harap isi semua data", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-         
-      
-        
-        
-     
-         
-         
     }//GEN-LAST:event_btnRegisterMouseClicked
+
+    private void ttl_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttl_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ttl_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,25 +534,24 @@ public class Register extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat_txt;
     private javax.swing.JButton btnRegister;
     private com.toedter.calendar.JDateChooser jDate_tanggalLahir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jenisKelamin_combo;
     private javax.swing.JTextField konfirmasi_txt;
     private javax.swing.JLabel labelRegristasi;
     private javax.swing.JLabel logoNamalengkap;
     private javax.swing.JLabel logoNamalengkap1;
-    private javax.swing.JLabel logoNamalengkap2;
     private javax.swing.JLabel logoNamalengkap3;
     private javax.swing.JLabel logoNamalengkap4;
     private javax.swing.JLabel logoNamalengkap5;
@@ -544,7 +560,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField namaLengkap_txt;
     private javax.swing.JPanel panelNamaLengkap;
     private javax.swing.JPanel panelNamaLengkap1;
-    private javax.swing.JPanel panelNamaLengkap2;
     private javax.swing.JPanel panelNamaLengkap3;
     private javax.swing.JPanel panelNamaLengkap4;
     private javax.swing.JPanel panelNamaLengkap5;
@@ -553,7 +568,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel panelRegister;
     private javax.swing.JTextField password_txt;
     private javax.swing.JTextField ttl_txt;
-    private javax.swing.JTextField umur_txt;
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 }

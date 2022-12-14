@@ -23,9 +23,9 @@ public class AkunServiceImpl  implements AkunServiceInterface{
     }
     
     @Override
-    public boolean register(String username , String password) {
-        try {
-        int id = this.repositoryImpl.getLastInsertId();
+    public boolean register(String username , String password , int id) {
+        try 
+        {
         Akun akun = new Akun();
         akun.setId_user(id);
         akun.setUsername(username);

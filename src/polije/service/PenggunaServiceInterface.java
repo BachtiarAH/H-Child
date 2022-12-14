@@ -12,6 +12,7 @@ import java.sql.Date;
  */
 public interface PenggunaServiceInterface {
     
-    public boolean register(String nama , String tempat_lahir  ,Date tanggal_Lahir ,  String jenisKelamin , int umur , String alamat);
-    
+    public boolean register(String nama , String tempat_lahir  ,Date tanggal_Lahir ,  String jenisKelamin  , String alamat);
+    public int getLastInsertId();
+    public boolean findByUsername(String username);
 }
