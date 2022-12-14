@@ -131,6 +131,11 @@ public class Login extends javax.swing.JFrame {
 
         ButtonCreateAkun.setBackground(new java.awt.Color(0, 255, 255));
         ButtonCreateAkun.setText("Create Akun");
+        ButtonCreateAkun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCreateAkunActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -152,11 +157,11 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGap(120, 120, 120)))
                     .addGroup(FormLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(FormLoginPanelLayout.createSequentialGroup()
-                            .addComponent(jButton1)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FormLoginPanelLayout.createSequentialGroup()
+                            .addComponent(ButtonCreateAkun)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonCreateAkun))
-                        .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton1))
+                        .addComponent(PasswordPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(198, Short.MAX_VALUE))
         );
         FormLoginPanelLayout.setVerticalGroup(
@@ -168,22 +173,23 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(userNamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(64, 64, 64)
                 .addGroup(FormLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonCreateAkun)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(ButtonCreateAkun))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Logo sunting.JPG"))); // NOI18N
 
         javax.swing.GroupLayout panelDasarLayout = new javax.swing.GroupLayout(panelDasar);
         panelDasar.setLayout(panelDasarLayout);
         panelDasarLayout.setHorizontalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDasarLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(61, 61, 61)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(FormLoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDasarLayout.setVerticalGroup(
@@ -229,6 +235,13 @@ public class Login extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ButtonCreateAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateAkunActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Register().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ButtonCreateAkunActionPerformed
 
     /**
      * @param args the command line arguments
