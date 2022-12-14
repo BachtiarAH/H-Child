@@ -4,6 +4,7 @@
  */
 package polije.views;
 
+import java.awt.Image;
 import javax.swing.JPanel;
 
 /**
@@ -36,18 +37,18 @@ public class home extends javax.swing.JFrame {
         panelDasar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelHome = new javax.swing.JPanel();
-        panelICekKondisi = new javax.swing.JPanel();
-        logoKebutuhanGizi = new javax.swing.JLabel();
-        panelLabelCekKondisi = new javax.swing.JPanel();
-        labelCekKondisi = new javax.swing.JLabel();
         panelIdentitasPasien = new javax.swing.JPanel();
         logoIdentitasPasien = new javax.swing.JLabel();
         panelLabelIdentitas = new javax.swing.JPanel();
         labelIdentitasPasien = new javax.swing.JLabel();
-        panelKebutuhanGizi = new javax.swing.JPanel();
-        logoIKebutuhanGizi = new javax.swing.JLabel();
-        panelLabelKebutuhanGizi = new javax.swing.JPanel();
-        labelKebutuhanGizi = new javax.swing.JLabel();
+        panelIdentitasPasien1 = new javax.swing.JPanel();
+        logoIdentitasPasien1 = new javax.swing.JLabel();
+        panelLabelIdentitas1 = new javax.swing.JPanel();
+        labelIdentitasPasien1 = new javax.swing.JLabel();
+        panelIdentitasPasien2 = new javax.swing.JPanel();
+        logoIdentitasPasien2 = new javax.swing.JLabel();
+        panelLabelIdentitas2 = new javax.swing.JPanel();
+        labelIdentitasPasien2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -62,67 +63,25 @@ public class home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelDasar.setBackground(new java.awt.Color(255, 255, 255));
         panelDasar.setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Logo sunting.png")));
         jLabel1.setPreferredSize(new java.awt.Dimension(640, 720));
 
         panelHome.setBackground(new java.awt.Color(4, 30, 65));
         panelHome.setPreferredSize(new java.awt.Dimension(640, 720));
 
-        panelICekKondisi.setBackground(new java.awt.Color(66, 83, 109));
-
-        logoKebutuhanGizi.setText("logo");
-
-        labelCekKondisi.setBackground(new java.awt.Color(242, 255, 255));
-        labelCekKondisi.setText("Cek Kondisi");
-
-        javax.swing.GroupLayout panelLabelCekKondisiLayout = new javax.swing.GroupLayout(panelLabelCekKondisi);
-        panelLabelCekKondisi.setLayout(panelLabelCekKondisiLayout);
-        panelLabelCekKondisiLayout.setHorizontalGroup(
-            panelLabelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelCekKondisiLayout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(labelCekKondisi)
-                .addGap(54, 54, 54))
-        );
-        panelLabelCekKondisiLayout.setVerticalGroup(
-            panelLabelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLabelCekKondisiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelCekKondisi)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panelICekKondisiLayout = new javax.swing.GroupLayout(panelICekKondisi);
-        panelICekKondisi.setLayout(panelICekKondisiLayout);
-        panelICekKondisiLayout.setHorizontalGroup(
-            panelICekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelICekKondisiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLabelCekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelICekKondisiLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(logoKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelICekKondisiLayout.setVerticalGroup(
-            panelICekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelICekKondisiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelLabelCekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         panelIdentitasPasien.setBackground(new java.awt.Color(66, 83, 109));
 
-        logoIdentitasPasien.setText("logo");
+        logoIdentitasPasien.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Identitas pasien.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
+        logoIdentitasPasien.setMaximumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien.setMinimumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien.setPreferredSize(new java.awt.Dimension(155, 155));
 
         labelIdentitasPasien.setBackground(new java.awt.Color(242, 255, 255));
-        labelIdentitasPasien.setText("identitas Pasien");
+        labelIdentitasPasien.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        labelIdentitasPasien.setText("Identitas Pasien");
 
         javax.swing.GroupLayout panelLabelIdentitasLayout = new javax.swing.GroupLayout(panelLabelIdentitas);
         panelLabelIdentitas.setLayout(panelLabelIdentitasLayout);
@@ -130,8 +89,8 @@ public class home extends javax.swing.JFrame {
             panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelIdentitasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addComponent(labelIdentitasPasien)
+                .addGap(27, 27, 27))
         );
         panelLabelIdentitasLayout.setVerticalGroup(
             panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,69 +104,118 @@ public class home extends javax.swing.JFrame {
         panelIdentitasPasien.setLayout(panelIdentitasPasienLayout);
         panelIdentitasPasienLayout.setHorizontalGroup(
             panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelIdentitasPasienLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         panelIdentitasPasienLayout.setVerticalGroup(
             panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        panelKebutuhanGizi.setBackground(new java.awt.Color(66, 83, 109));
+        panelIdentitasPasien1.setBackground(new java.awt.Color(66, 83, 109));
 
-        logoIKebutuhanGizi.setText("logo");
+        logoIdentitasPasien1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Cek kondisi.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
+        logoIdentitasPasien1.setMaximumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien1.setMinimumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien1.setPreferredSize(new java.awt.Dimension(155, 155));
 
-        labelKebutuhanGizi.setBackground(new java.awt.Color(242, 255, 255));
-        labelKebutuhanGizi.setText("Kebutuhan Gizi");
+        labelIdentitasPasien1.setBackground(new java.awt.Color(242, 255, 255));
+        labelIdentitasPasien1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        labelIdentitasPasien1.setText("Cek Kondisi");
 
-        javax.swing.GroupLayout panelLabelKebutuhanGiziLayout = new javax.swing.GroupLayout(panelLabelKebutuhanGizi);
-        panelLabelKebutuhanGizi.setLayout(panelLabelKebutuhanGiziLayout);
-        panelLabelKebutuhanGiziLayout.setHorizontalGroup(
-            panelLabelKebutuhanGiziLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelKebutuhanGiziLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelLabelIdentitas1Layout = new javax.swing.GroupLayout(panelLabelIdentitas1);
+        panelLabelIdentitas1.setLayout(panelLabelIdentitas1Layout);
+        panelLabelIdentitas1Layout.setHorizontalGroup(
+            panelLabelIdentitas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelIdentitas1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addComponent(labelIdentitasPasien1)
+                .addGap(35, 35, 35))
         );
-        panelLabelKebutuhanGiziLayout.setVerticalGroup(
-            panelLabelKebutuhanGiziLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLabelKebutuhanGiziLayout.createSequentialGroup()
+        panelLabelIdentitas1Layout.setVerticalGroup(
+            panelLabelIdentitas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLabelIdentitas1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelKebutuhanGizi)
+                .addComponent(labelIdentitasPasien1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout panelKebutuhanGiziLayout = new javax.swing.GroupLayout(panelKebutuhanGizi);
-        panelKebutuhanGizi.setLayout(panelKebutuhanGiziLayout);
-        panelKebutuhanGiziLayout.setHorizontalGroup(
-            panelKebutuhanGiziLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKebutuhanGiziLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLabelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKebutuhanGiziLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoIKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+        javax.swing.GroupLayout panelIdentitasPasien1Layout = new javax.swing.GroupLayout(panelIdentitasPasien1);
+        panelIdentitasPasien1.setLayout(panelIdentitasPasien1Layout);
+        panelIdentitasPasien1Layout.setHorizontalGroup(
+            panelIdentitasPasien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIdentitasPasien1Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(panelIdentitasPasien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelLabelIdentitas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logoIdentitasPasien1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
-        panelKebutuhanGiziLayout.setVerticalGroup(
-            panelKebutuhanGiziLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKebutuhanGiziLayout.createSequentialGroup()
+        panelIdentitasPasien1Layout.setVerticalGroup(
+            panelIdentitasPasien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasien1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(logoIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelLabelIdentitas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        panelIdentitasPasien2.setBackground(new java.awt.Color(66, 83, 109));
+
+        logoIdentitasPasien2.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Kebutuhan Gizi.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
+        logoIdentitasPasien2.setMaximumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien2.setMinimumSize(new java.awt.Dimension(155, 155));
+        logoIdentitasPasien2.setPreferredSize(new java.awt.Dimension(155, 155));
+
+        labelIdentitasPasien2.setBackground(new java.awt.Color(242, 255, 255));
+        labelIdentitasPasien2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        labelIdentitasPasien2.setText("Kebutuhan Gizi");
+
+        javax.swing.GroupLayout panelLabelIdentitas2Layout = new javax.swing.GroupLayout(panelLabelIdentitas2);
+        panelLabelIdentitas2.setLayout(panelLabelIdentitas2Layout);
+        panelLabelIdentitas2Layout.setHorizontalGroup(
+            panelLabelIdentitas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLabelIdentitas2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(labelIdentitasPasien2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLabelIdentitas2Layout.setVerticalGroup(
+            panelLabelIdentitas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLabelIdentitas2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logoIKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLabelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelIdentitasPasien2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelIdentitasPasien2Layout = new javax.swing.GroupLayout(panelIdentitasPasien2);
+        panelIdentitasPasien2.setLayout(panelIdentitasPasien2Layout);
+        panelIdentitasPasien2Layout.setHorizontalGroup(
+            panelIdentitasPasien2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIdentitasPasien2Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(panelIdentitasPasien2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelLabelIdentitas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logoIdentitasPasien2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        panelIdentitasPasien2Layout.setVerticalGroup(
+            panelIdentitasPasien2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasien2Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(logoIdentitasPasien2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelLabelIdentitas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -216,26 +224,26 @@ public class home extends javax.swing.JFrame {
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(45, 45, 45)
                 .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                .addComponent(panelICekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(panelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(211, 211, 211)
+                .addComponent(panelIdentitasPasien2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelICekKondisi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addComponent(panelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
+                    .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73)
+                .addComponent(panelIdentitasPasien2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
 
         javax.swing.GroupLayout panelDasarLayout = new javax.swing.GroupLayout(panelDasar);
@@ -243,9 +251,9 @@ public class home extends javax.swing.JFrame {
         panelDasarLayout.setHorizontalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDasarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(740, Short.MAX_VALUE))
             .addGroup(panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDasarLayout.createSequentialGroup()
                     .addContainerGap(634, Short.MAX_VALUE)
@@ -324,19 +332,19 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel labelCekKondisi;
     private javax.swing.JLabel labelIdentitasPasien;
-    private javax.swing.JLabel labelKebutuhanGizi;
-    private javax.swing.JLabel logoIKebutuhanGizi;
+    private javax.swing.JLabel labelIdentitasPasien1;
+    private javax.swing.JLabel labelIdentitasPasien2;
     private javax.swing.JLabel logoIdentitasPasien;
-    private javax.swing.JLabel logoKebutuhanGizi;
+    private javax.swing.JLabel logoIdentitasPasien1;
+    private javax.swing.JLabel logoIdentitasPasien2;
     private javax.swing.JPanel panelDasar;
     private javax.swing.JPanel panelHome;
-    private javax.swing.JPanel panelICekKondisi;
     private javax.swing.JPanel panelIdentitasPasien;
-    private javax.swing.JPanel panelKebutuhanGizi;
-    private javax.swing.JPanel panelLabelCekKondisi;
+    private javax.swing.JPanel panelIdentitasPasien1;
+    private javax.swing.JPanel panelIdentitasPasien2;
     private javax.swing.JPanel panelLabelIdentitas;
-    private javax.swing.JPanel panelLabelKebutuhanGizi;
+    private javax.swing.JPanel panelLabelIdentitas1;
+    private javax.swing.JPanel panelLabelIdentitas2;
     // End of variables declaration//GEN-END:variables
 }
