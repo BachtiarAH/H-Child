@@ -479,6 +479,9 @@
                   <Color blue="db" green="80" red="5c" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel10MouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

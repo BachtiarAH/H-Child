@@ -42,7 +42,7 @@ public class gizi68 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -53,6 +53,11 @@ public class gizi68 extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(640, 720));
 
         jPanel3.setBackground(new java.awt.Color(66, 83, 109));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Kebutuhan Gizi.png")).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
         jLabel2.setMaximumSize(new java.awt.Dimension(70, 70));
@@ -228,6 +233,11 @@ public class gizi68 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jPanel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -269,7 +279,6 @@ public class gizi68 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -277,7 +286,6 @@ public class gizi68 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

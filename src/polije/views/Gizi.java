@@ -7,6 +7,7 @@ package polije.views;
 import java.awt.Image;
 import polije.views.gizi.gizi06;
 import polije.views.gizi.gizi1224;
+import polije.views.gizi.gizi25;
 import polije.views.gizi.gizi68;
 import polije.views.gizi.gizi911;
 
@@ -251,6 +252,11 @@ public class Gizi extends javax.swing.JFrame {
         );
 
         jPanel10.setBackground(new java.awt.Color(92, 128, 219));
+        jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel10MouseClicked(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -370,31 +376,35 @@ public class Gizi extends javax.swing.JFrame {
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+//        this.setVisible(false);
         new gizi06().setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+//        this.setVisible(false);
         new gizi68().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+//        this.setVisible(false);
         new gizi911().setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+//        this.setVisible(false);
         new gizi1224().setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_jPanel9MouseClicked
+
+    private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
+        // TODO add your handling code here:
+        new gizi25().setVisible(true);
+    }//GEN-LAST:event_jPanel10MouseClicked
 
     /**
      * @param args the command line arguments

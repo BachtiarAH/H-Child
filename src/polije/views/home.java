@@ -176,6 +176,11 @@ public class home extends javax.swing.JFrame {
         );
 
         panelIdentitasPasien2.setBackground(new java.awt.Color(66, 83, 109));
+        panelIdentitasPasien2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelIdentitasPasien2MouseClicked(evt);
+            }
+        });
 
         logoIdentitasPasien2.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Kebutuhan Gizi.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
         logoIdentitasPasien2.setMaximumSize(new java.awt.Dimension(155, 155));
@@ -305,6 +310,13 @@ public class home extends javax.swing.JFrame {
         new TambahPasien().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelIdentitasPasienMouseClicked
+
+    private void panelIdentitasPasien2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien2MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Gizi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_panelIdentitasPasien2MouseClicked
 
     /**
      * @param args the command line arguments
