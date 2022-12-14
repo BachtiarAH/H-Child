@@ -2,7 +2,13 @@ package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import model.Pasien;
 
 /*
@@ -18,10 +24,13 @@ public class PasienRepositoryImpl implements PassienRepositoryInterface{
     
     
     private Connection Connection;
-
+    
+    private DefaultTableModel model;
+    
     public PasienRepositoryImpl() {
         DatabaseInterface db = new Database();
         this.Connection = db.getDatabase();
+        this.model = new DefaultTableModel();
     }
 
     @Override
@@ -45,4 +54,78 @@ public class PasienRepositoryImpl implements PassienRepositoryInterface{
         }
         return isSucces;
     }
+
+    @Override
+    public void showPasien(JTable table) {
+        String query = "select * from pasien";
+        model.addColumn("No");
+        model.addColumn("Nama Ibu");
+        model.addColumn("Nama Anak");
+        model.addColumn("Tempat Lahir");
+        model.addColumn("Tanggal Lahir");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Tinggi Badan");
+        model.addColumn("Umur(bulan)");
+        model.addColumn("Status");
+        try {
+            Statement st = this.Connection.createStatement();
+            ResultSet res = st.executeQuery(query);
+            int count = 0;
+            while(res.next() || res.isLast()){
+                int umur = res.getInt("umur");            
+                int tb = res.getInt("tinggiBadan");
+                String status = "";
+                if(umur <= 6){
+                    if(tb < 50.5){
+                        status = "Pendek(Sunting)";
+                    }else if(tb >= 50.5 && tb <= 66){
+                        status = "normal";
+                    }else{
+                        status = "tinggi";
+                    }
+                }else if(umur >= 7 && umur <= 12){
+                     if(tb < 67.5){
+                        status = "Pendek(Sunting)";
+                    }else if(tb >= 67.5 && tb <= 74.6){
+                        status = "normal";
+                    }else{
+                        status = "tinggi";
+                    }
+                }else if(umur >= 13 && umur <= 24){
+                     if(tb < 78){
+                        status = "Pendek(Sunting)";
+                    }else if(tb >= 78 && tb <= 94){
+                        status = "normal";
+                    }else{
+                        status = "tinggi";
+                    }
+                }else if(umur >= 25 && umur <= 60){
+                     if(tb < 96){
+                        status = "Pendek(Sunting)";
+                    }else if(tb >= 96 && tb <= 119.2){
+                        status = "normal";
+                    }else{
+                        status = "tinggi";
+                    }
+                }
+                count++;
+                model.addRow(new Object[]{
+                     count , res.getString("nama_ibu")
+                        , res.getString("nama_anak") 
+                        , res.getString("tempat_lahir") 
+                        , res.getString("tanggal_lahir") 
+                        , res.getString("jenis_kelamin") , 
+                          res.getInt("tinggiBadan") , 
+                          res.getString("umur") , 
+                          status
+                });
+                System.out.println(status);
+                System.out.println(count);
+            }
+            table.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(PasienRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

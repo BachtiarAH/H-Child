@@ -5,20 +5,26 @@
 package polije.views;
 
 import java.awt.Image;
+import javax.swing.table.DefaultTableModel;
+import polije.service.PassienServiceImpl;
+import polije.service.PassienServiceInterface;
 
 /**
  *
  * @author bacht
  */
 public class CekKondisi extends javax.swing.JFrame {
-
     /**
      * Creates new form CekKondisi
      */
+    DefaultTableModel model = new DefaultTableModel();
+    private PassienServiceInterface passien;
+    
     public CekKondisi() {
         initComponents();
+        this.passien = new PassienServiceImpl();
+        this.passien.showPassien(tableKondisi);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +41,7 @@ public class CekKondisi extends javax.swing.JFrame {
         panelLabelIdentitas1 = new javax.swing.JPanel();
         labelIdentitasPasien1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableKondisi = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,7 +107,7 @@ public class CekKondisi extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableKondisi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -112,7 +118,7 @@ public class CekKondisi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableKondisi);
 
         javax.swing.GroupLayout panelCekKondisiLayout = new javax.swing.GroupLayout(panelCekKondisi);
         panelCekKondisi.setLayout(panelCekKondisiLayout);
@@ -135,7 +141,7 @@ public class CekKondisi extends javax.swing.JFrame {
                 .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dasarLayout = new javax.swing.GroupLayout(dasar);
@@ -210,11 +216,11 @@ public class CekKondisi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dasar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelIdentitasPasien1;
     private javax.swing.JLabel logoIdentitasPasien1;
     private javax.swing.JPanel panelCekKondisi;
     private javax.swing.JPanel panelIdentitasPasien1;
     private javax.swing.JPanel panelLabelIdentitas1;
+    private javax.swing.JTable tableKondisi;
     // End of variables declaration//GEN-END:variables
 }
