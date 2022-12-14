@@ -60,6 +60,7 @@ public class Login extends javax.swing.JFrame {
         gambarLoginLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/tes.jpeg"))); // NOI18N
 
         FormLoginPanel.setBackground(new java.awt.Color(4, 125, 50));
+        FormLoginPanel.setPreferredSize(new java.awt.Dimension(640, 734));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome");
@@ -149,7 +150,7 @@ public class Login extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonCreateAkun))
                         .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         FormLoginPanelLayout.setVerticalGroup(
             FormLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +165,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(FormLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCreateAkun)
                     .addComponent(jButton1))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelDasarLayout = new javax.swing.GroupLayout(panelDasar);
@@ -172,13 +173,13 @@ public class Login extends javax.swing.JFrame {
         panelDasarLayout.setHorizontalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDasarLayout.createSequentialGroup()
-                .addComponent(gambarLoginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+                .addComponent(gambarLoginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
                 .addGap(100, 100, 100)
                 .addComponent(FormLoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDasarLayout.setVerticalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FormLoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FormLoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
             .addComponent(gambarLoginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -211,6 +212,7 @@ public class Login extends javax.swing.JFrame {
         out.print(this.getHeight()+' '+ this.getWidth());
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
