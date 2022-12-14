@@ -12,7 +12,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import polije.service.AkunServiceImpl;
+import polije.service.AuthService;
 import polije.util.viewUtil;
 
 /**
@@ -20,15 +23,17 @@ import polije.util.viewUtil;
  * @author bacht
  */
 public class Login extends javax.swing.JFrame {
+
     JFrame mainView;
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
     }
-    
-    public JPanel getpanel(){
+
+    public JPanel getpanel() {
         return panelDasar;
     }
 
@@ -208,14 +213,21 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("tinggi: "+ this.getHeight());
-        System.out.println("lebar: "+this.getWidth());
-//        viewUtil.setSideBar(mainView., panelDasar);
-        this.setVisible(false);
-        new home().setVisible(true);
-        this.dispose();
-            
+        AuthService auth = new AuthService();
+
+        if (fieldUsername.getText().equals("") || fieldPassword.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "harap isi field username dan password");
+        } else {
+            if (auth.login(fieldUsername.getText(), fieldPassword.getText())) {
+                this.setVisible(false);
+                new home().setVisible(true);
+                this.dispose();
+            } else {
+                System.out.println("gagal login");
+            }
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

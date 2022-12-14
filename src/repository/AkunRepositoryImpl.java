@@ -6,6 +6,7 @@ package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,30 @@ public class AkunRepositoryImpl  implements AkunRepositoryInterface{
             isRegister = false;
         } 
         return isRegister;
+    }
+    
+    public Akun getAkunByUsername(String username){
+        Akun model = new Akun();
+        String query = "SELECT * FROM `akun` WHERE username = ?";
+        try {
+            PreparedStatement pst = this.conn.prepareStatement(query);
+            pst.setString(1, username);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+//                rs.previous();
+//                System.out.println(rs.getString(0));
+                model.setId(rs.getInt("id_akun"));
+                model.setUsername(rs.getString("username"));
+                model.setPassword(rs.getString("password"));
+                model.setId_user(rs.getInt("id_user"));
+            }
+            
+            
+        } catch (SQLException e) {
+//            isRegister = false;
+            System.out.println("error in methode 'getAkunByUser' with message : "+e.getMessage());
+        }
+        return model;
     }
     
 }

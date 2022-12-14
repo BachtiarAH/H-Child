@@ -278,8 +278,6 @@ public class MainView extends javax.swing.JFrame {
         out.print(this.getHeight()+' '+ this.getWidth());
 
         panelConten.add(login, "card2");
-        Login loginFrame = new Login(this);
-        login = loginFrame.getpanel();
 
         register.setBackground(new java.awt.Color(102, 255, 0));
 

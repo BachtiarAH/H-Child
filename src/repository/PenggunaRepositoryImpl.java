@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import model.Pengguna;
 import polije.util.viewUtil;
 import repository.Database;
@@ -29,6 +30,7 @@ public class PenggunaRepositoryImpl implements PengunaRepositoryInterface{
     }
     @Override
     public boolean register(Pengguna pengguna) {
+        System.out.println("regoster repo0");
         boolean isSucces = false;
         try {     
         String query = "insert into pengguna (nama , tempat_lahir , tanggal_lahir , jenis_kelamin , umur , alamat ) "
@@ -40,12 +42,13 @@ public class PenggunaRepositoryImpl implements PengunaRepositoryInterface{
             pst.setString(4, pengguna.getJenisKelamin());
             pst.setInt(5, pengguna.getUmur());
             pst.setString(6, pengguna.getAlamat());
-            pst.execute();
-            
+           boolean is =  pst.execute();
+            System.out.println(is);
             isSucces = true;
         } catch (SQLException e) {
-            System.out.println(e.getCause());
-              isSucces = false;
+            System.out.println("asdasdasdasd");
+            JOptionPane.showMessageDialog(null, e.getCause());
+            isSucces = false;
         } 
         return isSucces;
     }
