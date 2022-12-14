@@ -6,6 +6,7 @@ package polije.views;
 
 import java.awt.Image;
 import polije.views.gizi.gizi06;
+import polije.views.gizi.gizi1224;
 import polije.views.gizi.gizi68;
 import polije.views.gizi.gizi911;
 
@@ -222,10 +223,15 @@ public class Gizi extends javax.swing.JFrame {
         );
 
         jPanel9.setBackground(new java.awt.Color(92, 128, 219));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("0 - 6 bulan");
+        jLabel8.setText("12 - 24 bulan");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -234,7 +240,7 @@ public class Gizi extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel8)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,6 +388,13 @@ public class Gizi extends javax.swing.JFrame {
         new gizi911().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new gizi1224().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel9MouseClicked
 
     /**
      * @param args the command line arguments
