@@ -33,15 +33,14 @@ public class PenggunaRepositoryImpl implements PengunaRepositoryInterface{
         System.out.println("regoster repo0");
         boolean isSucces = false;
         try {     
-        String query = "insert into pengguna (nama , tempat_lahir , tanggal_lahir , jenis_kelamin , umur , alamat ) "
-                + "values (? , ? , ? , ? , ? , ?)";
+        String query = "insert into pengguna (nama , tempat_lahir , tanggal_lahir , jenis_kelamin  , alamat ) "
+                + "values (? , ? , ? , ? , ? )";
             PreparedStatement pst = this.connection.prepareStatement(query , Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, pengguna.getNama());
             pst.setString(2, pengguna.getTempat_lahir());
             pst.setDate(3, pengguna.getTanggalLahir());
             pst.setString(4, pengguna.getJenisKelamin());
-            pst.setInt(5, pengguna.getUmur());
-            pst.setString(6, pengguna.getAlamat());
+            pst.setString(5, pengguna.getAlamat());
            boolean is =  pst.execute();
             System.out.println(is);
             isSucces = true;
@@ -75,6 +74,27 @@ public class PenggunaRepositoryImpl implements PengunaRepositoryInterface{
         }
     }
 
+    @Override
+    public boolean findByUsername(String username) {
+        String query = "select * from akun where username = ?";
+        boolean isMatch = false;
+        
+        try {
+           PreparedStatement pst =  this.connection.prepareStatement(query);
+           pst.setString(1, username);
+           ResultSet res = pst.executeQuery();
+           if(res.next()){
+              isMatch = true; 
+           }else{
+               isMatch = false; 
+           }
+        } catch (SQLException e) {
+        }
+        
+        return isMatch;
+    }
+    
+    
         
     
 }

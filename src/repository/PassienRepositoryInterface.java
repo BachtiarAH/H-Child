@@ -4,17 +4,14 @@
  */
 package repository;
 
-import model.Pengguna;
+import model.Pasien;
 
 /**
  *
  * @author zam
  */
-public interface PengunaRepositoryInterface {
+public interface PassienRepositoryInterface {
     
+    public boolean addPasien(Pasien pasien);
     
-    public boolean register(Pengguna pengguna);
-    public boolean login(Pengguna pengguna);
-    public int getLastInsertId();
-    public boolean findByUsername(String username);
 }

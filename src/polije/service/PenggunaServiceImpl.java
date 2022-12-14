@@ -20,7 +20,7 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
         this.repository = new PenggunaRepositoryImpl();
     }
     @Override
-    public boolean register(String nama, String tempat_lahir,java.sql.Date tanggal_lahir , String jenisKelamin, int umur, String alamat) {
+    public boolean register(String nama, String tempat_lahir,java.sql.Date tanggal_lahir , String jenisKelamin, String alamat) {
         System.out.println("service");
         boolean isSucces = false;
           try {
@@ -31,7 +31,6 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
               pengguna.setAlamat(alamat);
               pengguna.setJenisKelamin(jenisKelamin);
               pengguna.setTanggalLahir(tanggal_lahir);
-              pengguna.setUmur(umur);
               isSucces =  this.repository.register(pengguna);
         } catch (Exception e) {
             System.out.println(e);
@@ -39,4 +38,15 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
         }
         return isSucces;
     }
+
+    @Override
+    public int getLastInsertId() {
+        return this.repository.getLastInsertId();
+    }
+
+    @Override
+    public boolean findByUsername(String username) {
+       return  this.repository.findByUsername(username);
+    }
+    
 }

@@ -10,5 +10,5 @@ package polije.service;
  */
 public interface AkunServiceInterface {
     
-    public boolean register(String username , String password);
+    public boolean register(String username , String password , int id);
 }
