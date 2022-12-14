@@ -19,9 +19,9 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
     public PenggunaServiceImpl() {
         this.repository = new PenggunaRepositoryImpl();
     }
-    
     @Override
-    public boolean register(String nama, String tempat_lahir, Date tanggal_lahir, String jenisKelamin, int umur, String alamat) {
+    public boolean register(String nama, String tempat_lahir,java.sql.Date tanggal_lahir , String jenisKelamin, int umur, String alamat) {
+        System.out.println("service");
         boolean isSucces = false;
           try {
               System.out.println("ke");
@@ -32,9 +32,9 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
               pengguna.setJenisKelamin(jenisKelamin);
               pengguna.setTanggalLahir(tanggal_lahir);
               pengguna.setUmur(umur);
-              this.repository.register(pengguna);
-              System.out.println(pengguna.getId());
-        } catch (NullPointerException e) {
+              isSucces =  this.repository.register(pengguna);
+        } catch (Exception e) {
+            System.out.println(e);
             isSucces = false;
         }
         return isSucces;

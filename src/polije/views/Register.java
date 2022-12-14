@@ -4,7 +4,12 @@
  */
 package polije.views;
 
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import polije.service.PenggunaServiceImpl;
+import polije.service.PenggunaServiceInterface;
+import repository.PenggunaRepositoryImpl;
 
 /**
  *
@@ -12,11 +17,13 @@ import javax.swing.JPanel;
  */
 public class Register extends javax.swing.JFrame {
 
+  
     /**
      * Creates new form Register
      */
     public Register() {
         initComponents();
+      
         
     }
     
@@ -70,7 +77,7 @@ public class Register extends javax.swing.JFrame {
         logoNamalengkap7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         konfirmasi_txt = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -351,7 +358,12 @@ public class Register extends javax.swing.JFrame {
                 .addGap(7, 7, 7))
         );
 
-        jButton1.setText("Simpan");
+        btnRegister.setText("Simpan");
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRegisterLayout = new javax.swing.GroupLayout(panelRegister);
         panelRegister.setLayout(panelRegisterLayout);
@@ -375,7 +387,7 @@ public class Register extends javax.swing.JFrame {
                                 .addComponent(panelNamaLengkap2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(panelNamaLengkap1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(panelNamaLengkap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButton1))))
+                            .addComponent(btnRegister))))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         panelRegisterLayout.setVerticalGroup(
@@ -400,7 +412,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(panelNamaLengkap7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jButton1)
+                .addComponent(btnRegister)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -427,6 +439,56 @@ public class Register extends javax.swing.JFrame {
     private void jenisKelamin_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisKelamin_comboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jenisKelamin_comboActionPerformed
+
+    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
+         // TODO add your handling code here:
+         PenggunaServiceInterface service = new PenggunaServiceImpl();
+           
+         System.out.println("reaasd");
+         PenggunaServiceImpl penggunaServiceInterface = new PenggunaServiceImpl();
+         String nama = namaLengkap_txt.getText();
+         String tempatLahir = ttl_txt.getText();
+         Date dt = jDate_tanggalLahir.getDate();
+         int jkInt = jenisKelamin_combo.getSelectedIndex();
+         String umur = umur_txt.getText();
+         String alamat = alamat_txt.getText();
+         
+         if(nama != "" && tempatLahir != "" && jDate_tanggalLahir.getDate()!=null && jkInt == 0 &&  umur == "" && alamat == "" ){
+              JOptionPane.showMessageDialog(null, "Gagal Daftar Akun , harap isi semua field", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+         }else{ 
+             try {
+                  java.sql.Date confert = new java.sql.Date(dt.getDate());
+                  int umurInt = Integer.parseInt(umur);
+                  String jkValue ="";
+                  if(jkInt == 1){
+                  jkValue = "Laki-laki";
+                  }else if(jkInt == 2){
+                  jkValue = "Peremupan";
+                  } 
+          boolean isSuces =  service.register(nama, tempatLahir, confert, jkValue, umurInt, alamat);
+          if(isSuces){
+              System.out.println("true");
+             JOptionPane.showMessageDialog(null, "Berhasil Daftar Akun", "Success", JOptionPane.INFORMATION_MESSAGE);
+          }else{
+             System.out.println("asd");
+            // JOptionPane.showMessageDialog(null, "Gagal Mendaftarkan akun", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+          } 
+             } catch (NumberFormatException e) {
+                              JOptionPane.showMessageDialog(null, "Harap masukan umur dengan angka", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+
+            }catch(NullPointerException e){
+                                                JOptionPane.showMessageDialog(null, "Harap isi semua data", "Terjadi Kesalahan", JOptionPane.INFORMATION_MESSAGE);
+
+             }
+        }
+         
+      
+        
+        
+     
+         
+         
+    }//GEN-LAST:event_btnRegisterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -465,7 +527,7 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat_txt;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegister;
     private com.toedter.calendar.JDateChooser jDate_tanggalLahir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
