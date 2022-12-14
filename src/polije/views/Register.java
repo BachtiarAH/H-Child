@@ -45,7 +45,6 @@ public class Register extends javax.swing.JFrame {
         logoNamalengkap1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ttl_txt = new javax.swing.JTextField();
-        jDate_tanggalLahir = new com.toedter.calendar.JDateChooser();
         panelNamaLengkap2 = new javax.swing.JPanel();
         logoNamalengkap2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,8 +118,6 @@ public class Register extends javax.swing.JFrame {
 
         ttl_txt.setBorder(null);
 
-        jDate_tanggalLahir.setDateFormatString("yyyy-MM-dd");
-
         javax.swing.GroupLayout panelNamaLengkap1Layout = new javax.swing.GroupLayout(panelNamaLengkap1);
         panelNamaLengkap1.setLayout(panelNamaLengkap1Layout);
         panelNamaLengkap1Layout.setHorizontalGroup(
@@ -128,24 +125,20 @@ public class Register extends javax.swing.JFrame {
             .addGroup(panelNamaLengkap1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(logoNamalengkap1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDate_tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(212, 212, 212))
         );
         panelNamaLengkap1Layout.setVerticalGroup(
             panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNamaLengkap1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDate_tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(logoNamalengkap1)
-                        .addComponent(jLabel2)
-                        .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelNamaLengkap1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logoNamalengkap1)
+                    .addComponent(jLabel2)
+                    .addComponent(ttl_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -466,7 +459,6 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat_txt;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDate_tanggalLahir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

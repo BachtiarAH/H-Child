@@ -33,15 +33,17 @@ public class home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        panelDasar = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         panelHome = new javax.swing.JPanel();
-        panelIdentitasPasien = new javax.swing.JPanel();
-        logoIdentitasPasien = new javax.swing.JLabel();
-        panelLabelIdentitas = new javax.swing.JPanel();
-        labelIdentitasPasien = new javax.swing.JLabel();
         panelICekKondisi = new javax.swing.JPanel();
         logoKebutuhanGizi = new javax.swing.JLabel();
         panelLabelCekKondisi = new javax.swing.JPanel();
         labelCekKondisi = new javax.swing.JLabel();
+        panelIdentitasPasien = new javax.swing.JPanel();
+        logoIdentitasPasien = new javax.swing.JLabel();
+        panelLabelIdentitas = new javax.swing.JPanel();
+        labelIdentitasPasien = new javax.swing.JLabel();
         panelKebutuhanGizi = new javax.swing.JPanel();
         logoIKebutuhanGizi = new javax.swing.JLabel();
         panelLabelKebutuhanGizi = new javax.swing.JPanel();
@@ -60,55 +62,13 @@ public class home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelDasar.setPreferredSize(new java.awt.Dimension(1280, 720));
+
+        jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(640, 720));
+
         panelHome.setBackground(new java.awt.Color(4, 30, 65));
-        panelHome.setPreferredSize(new java.awt.Dimension(401, 471));
-
-        panelIdentitasPasien.setBackground(new java.awt.Color(66, 83, 109));
-
-        logoIdentitasPasien.setText("logo");
-
-        labelIdentitasPasien.setBackground(new java.awt.Color(242, 255, 255));
-        labelIdentitasPasien.setText("identitas Pasien");
-
-        javax.swing.GroupLayout panelLabelIdentitasLayout = new javax.swing.GroupLayout(panelLabelIdentitas);
-        panelLabelIdentitas.setLayout(panelLabelIdentitasLayout);
-        panelLabelIdentitasLayout.setHorizontalGroup(
-            panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelIdentitasLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(labelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
-        panelLabelIdentitasLayout.setVerticalGroup(
-            panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLabelIdentitasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelIdentitasPasien)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panelIdentitasPasienLayout = new javax.swing.GroupLayout(panelIdentitasPasien);
-        panelIdentitasPasien.setLayout(panelIdentitasPasienLayout);
-        panelIdentitasPasienLayout.setHorizontalGroup(
-            panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelIdentitasPasienLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelIdentitasPasienLayout.setVerticalGroup(
-            panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        panelHome.setPreferredSize(new java.awt.Dimension(640, 720));
 
         panelICekKondisi.setBackground(new java.awt.Color(66, 83, 109));
 
@@ -157,6 +117,53 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        panelIdentitasPasien.setBackground(new java.awt.Color(66, 83, 109));
+
+        logoIdentitasPasien.setText("logo");
+
+        labelIdentitasPasien.setBackground(new java.awt.Color(242, 255, 255));
+        labelIdentitasPasien.setText("identitas Pasien");
+
+        javax.swing.GroupLayout panelLabelIdentitasLayout = new javax.swing.GroupLayout(panelLabelIdentitas);
+        panelLabelIdentitas.setLayout(panelLabelIdentitasLayout);
+        panelLabelIdentitasLayout.setHorizontalGroup(
+            panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelIdentitasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+        panelLabelIdentitasLayout.setVerticalGroup(
+            panelLabelIdentitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLabelIdentitasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelIdentitasPasien)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelIdentitasPasienLayout = new javax.swing.GroupLayout(panelIdentitasPasien);
+        panelIdentitasPasien.setLayout(panelIdentitasPasienLayout);
+        panelIdentitasPasienLayout.setHorizontalGroup(
+            panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelIdentitasPasienLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelIdentitasPasienLayout.setVerticalGroup(
+            panelIdentitasPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIdentitasPasienLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logoIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelLabelIdentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         panelKebutuhanGizi.setBackground(new java.awt.Color(66, 83, 109));
 
         logoIKebutuhanGizi.setText("logo");
@@ -169,7 +176,7 @@ public class home extends javax.swing.JFrame {
         panelLabelKebutuhanGiziLayout.setHorizontalGroup(
             panelLabelKebutuhanGiziLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLabelKebutuhanGiziLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -199,7 +206,7 @@ public class home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKebutuhanGiziLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logoIKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelLabelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -209,40 +216,74 @@ public class home extends javax.swing.JFrame {
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(35, 35, 35)
                 .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(panelICekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35))
+            .addGroup(panelHomeLayout.createSequentialGroup()
+                .addGap(215, 215, 215)
                 .addComponent(panelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(214, 214, 214))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addContainerGap(131, Short.MAX_VALUE)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelICekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
+                    .addComponent(panelIdentitasPasien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelICekKondisi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
                 .addComponent(panelKebutuhanGizi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addGap(152, 152, 152))
+        );
+
+        javax.swing.GroupLayout panelDasarLayout = new javax.swing.GroupLayout(panelDasar);
+        panelDasar.setLayout(panelDasarLayout);
+        panelDasarLayout.setHorizontalGroup(
+            panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDasarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(634, Short.MAX_VALUE))
+            .addGroup(panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDasarLayout.createSequentialGroup()
+                    .addContainerGap(634, Short.MAX_VALUE)
+                    .addComponent(panelHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        panelDasarLayout.setVerticalGroup(
+            panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDasarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDasarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panelDasar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panelDasar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -281,6 +322,7 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelCekKondisi;
     private javax.swing.JLabel labelIdentitasPasien;
@@ -288,6 +330,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel logoIKebutuhanGizi;
     private javax.swing.JLabel logoIdentitasPasien;
     private javax.swing.JLabel logoKebutuhanGizi;
+    private javax.swing.JPanel panelDasar;
     private javax.swing.JPanel panelHome;
     private javax.swing.JPanel panelICekKondisi;
     private javax.swing.JPanel panelIdentitasPasien;

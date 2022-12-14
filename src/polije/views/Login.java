@@ -11,19 +11,25 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import polije.util.viewUtil;
 
 /**
  *
  * @author bacht
  */
 public class Login extends javax.swing.JFrame {
-
+    JFrame mainView;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-        
+    }
+    
+    public JPanel getpanel(){
+        return panelDasar;
     }
 
     /**
@@ -36,7 +42,6 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         panelDasar = new javax.swing.JPanel();
-        gambarLoginLabel = new javax.swing.JLabel();
         FormLoginPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         userNamePanel = new javax.swing.JPanel();
@@ -49,17 +54,14 @@ public class Login extends javax.swing.JFrame {
         fieldPassword = new javax.swing.JTextField();
         ButtonCreateAkun = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1366, 768));
 
-        panelDasar.setBackground(new java.awt.Color(4, 30, 65));
+        panelDasar.setBackground(new java.awt.Color(255, 255, 255));
 
-        gambarLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
-        gambarLoginLabel.setForeground(new java.awt.Color(255, 255, 255));
-        gambarLoginLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/tes.jpeg"))); // NOI18N
-
-        FormLoginPanel.setBackground(new java.awt.Color(4, 125, 50));
+        FormLoginPanel.setBackground(new java.awt.Color(4, 30, 65));
         FormLoginPanel.setPreferredSize(new java.awt.Dimension(640, 734));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,37 +167,27 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(FormLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCreateAkun)
                     .addComponent(jButton1))
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout panelDasarLayout = new javax.swing.GroupLayout(panelDasar);
         panelDasar.setLayout(panelDasarLayout);
         panelDasarLayout.setHorizontalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDasarLayout.createSequentialGroup()
-                .addComponent(gambarLoginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                .addGap(100, 100, 100)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FormLoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDasarLayout.setVerticalGroup(
             panelDasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(FormLoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-            .addComponent(gambarLoginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelDasarLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("C:/Users/bacht/OneDrive/Dokumen/JAVA/H - Child/src/polije/assets/family_doc_online_2.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(gambarLoginLabel.getHeight());
-        Image dimg = img.getScaledInstance(500, 250,
-            Image.SCALE_SMOOTH);
-
-        ImageIcon imageIcon = new ImageIcon(dimg);
-
-        gambarLoginLabel.setIcon(imageIcon);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,6 +211,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("tinggi: "+ this.getHeight());
         System.out.println("lebar: "+this.getWidth());
+//        viewUtil.setSideBar(mainView., panelDasar);
+        this.setVisible(false);
+        new home().setVisible(true);
+        this.dispose();
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -262,11 +259,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel PasswordPanel;
     private javax.swing.JTextField fieldPassword;
     private javax.swing.JTextField fieldUsername;
-    private javax.swing.JLabel gambarLoginLabel;
     private javax.swing.JLabel iconPassword;
     private javax.swing.JLabel iconUsername;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JPanel panelDasar;
