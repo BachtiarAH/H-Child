@@ -73,6 +73,11 @@ public class home extends javax.swing.JFrame {
         panelHome.setPreferredSize(new java.awt.Dimension(640, 720));
 
         panelIdentitasPasien.setBackground(new java.awt.Color(66, 83, 109));
+        panelIdentitasPasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelIdentitasPasienMouseClicked(evt);
+            }
+        });
 
         logoIdentitasPasien.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Identitas pasien.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
         logoIdentitasPasien.setMaximumSize(new java.awt.Dimension(155, 155));
@@ -293,6 +298,13 @@ public class home extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void panelIdentitasPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasienMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new TambahPasien().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_panelIdentitasPasienMouseClicked
 
     /**
      * @param args the command line arguments
