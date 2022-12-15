@@ -4,6 +4,9 @@
  */
 package polije.views;
 
+import java.awt.HeadlessException;
+import java.util.Date;
+
 /**
  *
  * @author zam
@@ -13,10 +16,23 @@ public class UpdateDelete extends javax.swing.JFrame {
     /**
      * Creates new form UpdateDelete
      */
-    public UpdateDelete() {
+    public UpdateDelete(String namaIbu , String namaAnak , String tempatLahir , int jenisKelamin , String umur , String tinggi , Date tanggalLahir) {
+        this.setResizable(false);
+        initComponents();
+        this.editNamaIbu_txt.setText(namaIbu);
+        this.namaAnakEdit_txt.setText(namaAnak);
+        this.editTempatLahir_txt.setText(tempatLahir);
+        this.jenisKelaminEdit_txt.setSelectedIndex(jenisKelamin);
+        this.umurEdit.setText(umur);
+        this.tinggiBadan_txt.setText(tinggi);
+        this.tanggalLahirEdit.setDate(tanggalLahir);
+    }
+
+    public UpdateDelete(){
         this.setResizable(false);
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,24 +45,24 @@ public class UpdateDelete extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        editNamaIbu_txt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        editTempatLahir_txt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tinggiBadan_txt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        namaAnakEdit_txt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        umurEdit = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        simpanEdit = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        jenisKelaminEdit_txt = new javax.swing.JComboBox<>();
+        tanggalLahirEdit = new com.toedter.calendar.JDateChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Update Data Pasien");
 
@@ -54,23 +70,41 @@ public class UpdateDelete extends javax.swing.JFrame {
 
         jLabel3.setText("Tempat Lahir");
 
+        editTempatLahir_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTempatLahir_txtActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Tinggi Badan");
+
+        tinggiBadan_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tinggiBadan_txtActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Jenis Kelamin");
 
         jLabel6.setText("Nama Anak");
 
-        jLabel7.setText("Tanggal Lahir");
+        namaAnakEdit_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaAnakEdit_txtActionPerformed(evt);
+            }
+        });
 
-        jLabel8.setText("Umur");
+        jLabel7.setText("Umur");
 
-        jButton1.setText("Simpan");
+        jLabel8.setText("Tanggal Lahir");
 
-        jButton2.setText("Delete");
+        simpanEdit.setText("Simpan");
 
-        jButton3.setText("cancel");
+        deleteButton.setText("Delete");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cancelButton.setText("cancel");
+
+        jenisKelaminEdit_txt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,29 +118,29 @@ public class UpdateDelete extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jenisKelaminEdit_txt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                            .addComponent(tinggiBadan_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
+                            .addComponent(editNamaIbu_txt)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                            .addComponent(editTempatLahir_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel8)
                                 .addComponent(jLabel6)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(namaAnakEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(umurEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(cancelButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)
+                                .addComponent(simpanEdit)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(deleteButton))
+                            .addComponent(tanggalLahirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
@@ -119,41 +153,53 @@ public class UpdateDelete extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editNamaIbu_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editTempatLahir_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tinggiBadan_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(namaAnakEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(umurEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tanggalLahirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
+                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(simpanEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jenisKelaminEdit_txt))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void editTempatLahir_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTempatLahir_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editTempatLahir_txtActionPerformed
+
+    private void tinggiBadan_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tinggiBadan_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tinggiBadan_txtActionPerformed
+
+    private void namaAnakEdit_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaAnakEdit_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaAnakEdit_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,11 +237,10 @@ public class UpdateDelete extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField editNamaIbu_txt;
+    private javax.swing.JTextField editTempatLahir_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,10 +249,11 @@ public class UpdateDelete extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JComboBox<String> jenisKelaminEdit_txt;
+    private javax.swing.JTextField namaAnakEdit_txt;
+    private javax.swing.JButton simpanEdit;
+    private com.toedter.calendar.JDateChooser tanggalLahirEdit;
+    private javax.swing.JTextField tinggiBadan_txt;
+    private javax.swing.JTextField umurEdit;
     // End of variables declaration//GEN-END:variables
 }
