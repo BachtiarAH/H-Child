@@ -316,12 +316,12 @@ public class home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_panelIdentitasPasienMouseClicked
 
-    private void panelIdentitasPasien2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien2MouseClicked
+    private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien1MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Gizi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_panelIdentitasPasien2MouseClicked
+        CekKondisi cekKondisi = new CekKondisi();
+        cekKondisi.setVisible(true);
+    }//GEN-LAST:event_panelIdentitasPasien1MouseClicked
+
 
     private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien1MouseClicked
         // TODO add your handling code here:
