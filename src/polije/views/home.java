@@ -127,6 +127,11 @@ public class home extends javax.swing.JFrame {
         );
 
         panelIdentitasPasien1.setBackground(new java.awt.Color(66, 83, 109));
+        panelIdentitasPasien1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelIdentitasPasien1MouseClicked(evt);
+            }
+        });
 
         logoIdentitasPasien1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Cek kondisi.png")).getImage().getScaledInstance(155, 155, Image.SCALE_DEFAULT)));
         logoIdentitasPasien1.setMaximumSize(new java.awt.Dimension(155, 155));
@@ -305,6 +310,12 @@ public class home extends javax.swing.JFrame {
         new TambahPasien().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelIdentitasPasienMouseClicked
+
+    private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien1MouseClicked
+        // TODO add your handling code here:
+        CekKondisi cekKondisi = new CekKondisi();
+        cekKondisi.setVisible(true);
+    }//GEN-LAST:event_panelIdentitasPasien1MouseClicked
 
     /**
      * @param args the command line arguments
