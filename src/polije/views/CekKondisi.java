@@ -5,20 +5,31 @@
 package polije.views;
 
 import java.awt.Image;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import polije.service.PassienServiceImpl;
+import polije.service.PassienServiceInterface;
 
 /**
  *
  * @author bacht
  */
 public class CekKondisi extends javax.swing.JFrame {
-
     /**
      * Creates new form CekKondisi
      */
+    DefaultTableModel model = new DefaultTableModel();
+    private PassienServiceInterface passien;
+    
     public CekKondisi() {
         initComponents();
+        this.passien = new PassienServiceImpl();
+        this.passien.showPassien(tableKondisi);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +46,7 @@ public class CekKondisi extends javax.swing.JFrame {
         panelLabelIdentitas1 = new javax.swing.JPanel();
         labelIdentitasPasien1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableKondisi = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,7 +112,13 @@ public class CekKondisi extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane1MouseClicked(evt);
+            }
+        });
+
+        tableKondisi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -112,7 +129,12 @@ public class CekKondisi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tableKondisi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableKondisiMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableKondisi);
 
         javax.swing.GroupLayout panelCekKondisiLayout = new javax.swing.GroupLayout(panelCekKondisi);
         panelCekKondisi.setLayout(panelCekKondisiLayout);
@@ -135,7 +157,7 @@ public class CekKondisi extends javax.swing.JFrame {
                 .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dasarLayout = new javax.swing.GroupLayout(dasar);
@@ -171,6 +193,41 @@ public class CekKondisi extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jScrollPane1MouseClicked
+
+    private void tableKondisiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKondisiMouseClicked
+        // TODO add your handling code here:
+      int row = tableKondisi.getSelectedRow();
+      String namaIbu = tableKondisi.getValueAt(row, 1).toString();
+      String namaAnak = tableKondisi.getValueAt(row, 2).toString();
+      String tempatLahir = tableKondisi.getValueAt(row, 3).toString();
+      String tanggalLahir = tableKondisi.getValueAt(row, 4).toString();
+      String jenisKelamin = tableKondisi.getValueAt(row, 5).toString();
+      String tinggi = tableKondisi.getValueAt(row, 6).toString();
+      String umur = tableKondisi.getValueAt(row, 7).toString();
+      int jkValue = 0;
+      if(jenisKelamin.equals("Laki-laki")){
+          jkValue = 1;
+      }else{
+          jkValue = 2;
+      }
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            java.util.Date date = formater.parse(tanggalLahir);
+               UpdateDelete updScrenn = new 
+        UpdateDelete(namaIbu, namaAnak, tempatLahir,jkValue , umur, tinggi, date);
+               updScrenn.setVisible(true);
+               
+        } catch (ParseException ex) {
+            Logger.getLogger(CekKondisi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+      
+    }//GEN-LAST:event_tableKondisiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -210,11 +267,11 @@ public class CekKondisi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dasar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelIdentitasPasien1;
     private javax.swing.JLabel logoIdentitasPasien1;
     private javax.swing.JPanel panelCekKondisi;
     private javax.swing.JPanel panelIdentitasPasien1;
     private javax.swing.JPanel panelLabelIdentitas1;
+    private javax.swing.JTable tableKondisi;
     // End of variables declaration//GEN-END:variables
 }

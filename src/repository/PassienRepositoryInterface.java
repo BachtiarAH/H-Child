@@ -4,6 +4,7 @@
  */
 package repository;
 
+import javax.swing.JTable;
 import model.Pasien;
 
 /**
@@ -13,5 +14,6 @@ import model.Pasien;
 public interface PassienRepositoryInterface {
     
     public boolean addPasien(Pasien pasien);
+    public void showPasien(JTable table);
     
 }

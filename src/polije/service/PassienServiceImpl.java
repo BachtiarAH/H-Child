@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
+import javax.swing.JTable;
 import model.Pasien;
 import repository.PasienRepositoryImpl;
 import repository.PassienRepositoryInterface;
@@ -55,4 +56,10 @@ public class PassienServiceImpl implements PassienServiceInterface{
         int month = Period.between(dates, now).getMonths();
         return month;
     }
+
+    @Override
+    public void showPassien(JTable table) {
+        this.repository.showPasien(table);
+    }
+    
 }
