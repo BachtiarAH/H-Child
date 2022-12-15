@@ -5,6 +5,7 @@
 package polije.service;
 
 import java.sql.Date;
+import model.Pasien;
 import model.Pengguna;
 import repository.PenggunaRepositoryImpl;
 
@@ -48,6 +49,9 @@ public class PenggunaServiceImpl implements  PenggunaServiceInterface{
     public boolean findByUsername(String username) {
        return  this.repository.findByUsername(username);
     }
+
+
+    
     
     
     

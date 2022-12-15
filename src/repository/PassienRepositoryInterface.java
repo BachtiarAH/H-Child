@@ -15,5 +15,6 @@ public interface PassienRepositoryInterface {
     
     public boolean addPasien(Pasien pasien);
     public void showPasien(JTable table);
-    
+    public boolean updatePasien(Pasien pasien);
+    public boolean deletePasien(int id);
 }

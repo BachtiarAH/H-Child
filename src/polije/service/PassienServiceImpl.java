@@ -61,5 +61,31 @@ public class PassienServiceImpl implements PassienServiceInterface{
     public void showPassien(JTable table) {
         this.repository.showPasien(table);
     }
+        @Override
+    public boolean updatePasien(String namaAnak, String namaIbu, String tempatLahir, String jenisKelamin, java.sql.Date tanggalLahir, int tinggiBadan, int umur, int id) {
+        Pasien pasien = new Pasien();
+        pasien.setNamaAnak(namaAnak);
+        pasien.setNamaIbu(namaIbu);
+        pasien.setTempatLahir(tempatLahir);
+        pasien.setJenisKelamin(jenisKelamin);
+        pasien.setTanggalLahir(tanggalLahir);
+        pasien.setTinggiBadan(tinggiBadan);
+        pasien.setUmur(umur);
+        pasien.setId(id);
+        return this.repository.updatePasien(pasien);
+    }
+
+    @Override
+    public boolean deletePasien(String id) {
+        boolean isSuccess = false;
+        try {
+            int newId = Integer.parseInt(id);
+            isSuccess = this.repository.deletePasien(newId);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+            return false;
+        }
+        return isSuccess;
+    }
     
 }

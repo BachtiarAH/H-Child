@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import model.Pasien;
 import model.Pengguna;
 import polije.util.viewUtil;
 import repository.Database;
@@ -93,6 +94,8 @@ public class PenggunaRepositoryImpl implements PengunaRepositoryInterface{
         
         return isMatch;
     }
+    
+    
     
     
         
