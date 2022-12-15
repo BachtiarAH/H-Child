@@ -6,18 +6,26 @@ package polije.views;
 
 import java.awt.HeadlessException;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import polije.service.PassienServiceImpl;
+import polije.service.PassienServiceInterface;
+import repository.PasienRepositoryImpl;
+import repository.PassienRepositoryInterface;
 
 /**
  *
  * @author zam
  */
 public class UpdateDelete extends javax.swing.JFrame {
+    
+    private PassienServiceInterface service;
 
     /**
      * Creates new form UpdateDelete
      */
-    public UpdateDelete(String namaIbu , String namaAnak , String tempatLahir , int jenisKelamin , String umur , String tinggi , Date tanggalLahir) {
+    public UpdateDelete(String namaIbu , String namaAnak , String tempatLahir , int jenisKelamin , String umur , String tinggi , Date tanggalLahir , String id) {
         this.setResizable(false);
+         this.service = new PassienServiceImpl();
         initComponents();
         this.editNamaIbu_txt.setText(namaIbu);
         this.namaAnakEdit_txt.setText(namaAnak);
@@ -26,10 +34,13 @@ public class UpdateDelete extends javax.swing.JFrame {
         this.umurEdit.setText(umur);
         this.tinggiBadan_txt.setText(tinggi);
         this.tanggalLahirEdit.setDate(tanggalLahir);
+        this.id.setText(id);
+       
     }
 
     public UpdateDelete(){
         this.setResizable(false);
+        this.service = new PassienServiceImpl();
         initComponents();
     }
     
@@ -61,6 +72,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
         jenisKelaminEdit_txt = new javax.swing.JComboBox<>();
         tanggalLahirEdit = new com.toedter.calendar.JDateChooser();
+        id = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,12 +111,24 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel8.setText("Tanggal Lahir");
 
         simpanEdit.setText("Simpan");
+        simpanEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                simpanEditMouseClicked(evt);
+            }
+        });
 
         deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("cancel");
 
         jenisKelaminEdit_txt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
+
+        tanggalLahirEdit.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +164,8 @@ public class UpdateDelete extends javax.swing.JFrame {
                                 .addComponent(simpanEdit)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton))
-                            .addComponent(tanggalLahirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tanggalLahirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
@@ -149,7 +174,9 @@ public class UpdateDelete extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(id))
                         .addGap(15, 15, 15)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -201,6 +228,61 @@ public class UpdateDelete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_namaAnakEdit_txtActionPerformed
 
+    private void simpanEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_simpanEditMouseClicked
+        // TODO add your handling code here:
+        
+        try {
+            String namaAnak = namaAnakEdit_txt.getText();
+            String namaIbu = editNamaIbu_txt.getText();
+            String tempatLahir = editTempatLahir_txt.getText();
+            Date tanggalLahir = tanggalLahirEdit.getDate();
+            String jenisKelamin = jenisKelaminEdit_txt.getSelectedItem().toString();
+            String tinggi = tinggiBadan_txt.getText();
+            String umut = umurEdit.getText();
+            if(!namaAnak.equals("") && !namaIbu.equals("") && !tempatLahir.equals("")&&!jenisKelamin.equals("")&&!tinggi.equals("")&&!umut.equals("")&&tanggalLahir!=null){
+              try {
+                int umurValue = Integer.parseInt(umut);
+                int tingiValue = Integer.parseInt(tinggi);
+                int idValue = Integer.parseInt(id.getText());
+                java.sql.Date dateAfter = new java.sql.Date(tanggalLahir.getTime());
+                boolean isUpdate = this.service.updatePasien(namaAnak, namaIbu, tempatLahir, jenisKelamin, dateAfter, tingiValue, umurValue, idValue);
+                if(isUpdate){
+                    JOptionPane.showMessageDialog(null, "Berhasil memperbarui data", "success", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Gagal Update Data , Terjadi kesalahan server", "failed", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Harap isikan umur , tingin denan angka", "failed", JOptionPane.ERROR_MESSAGE);
+            }  
+            }else{
+                JOptionPane.showMessageDialog(null, "Harap isikan semua field", "failed", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+            
+            
+        } catch (NullPointerException e) {
+                            JOptionPane.showMessageDialog(null, "Harap isikan semua field", "failed", JOptionPane.ERROR_MESSAGE);
+            
+        }
+        
+       
+    }//GEN-LAST:event_simpanEditMouseClicked
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+        String idValue = id.getText();
+        boolean result = this.service.deletePasien(idValue);
+        if(result){
+              JOptionPane.showMessageDialog(null, "Berhasil Delete Data", "success", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();  
+        }else{
+                                JOptionPane.showMessageDialog(null, "Gagal delete Data , Terjadi kesalahan server", "failed", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +323,7 @@ public class UpdateDelete extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField editNamaIbu_txt;
     private javax.swing.JTextField editTempatLahir_txt;
+    private javax.swing.JLabel id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

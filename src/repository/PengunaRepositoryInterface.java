@@ -4,6 +4,7 @@
  */
 package repository;
 
+import model.Pasien;
 import model.Pengguna;
 
 /**
@@ -17,4 +18,5 @@ public interface PengunaRepositoryInterface {
     public boolean login(Pengguna pengguna);
     public int getLastInsertId();
     public boolean findByUsername(String username);
+    
 }

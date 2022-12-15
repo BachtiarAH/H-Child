@@ -30,6 +30,15 @@ public class CekKondisi extends javax.swing.JFrame {
         this.passien = new PassienServiceImpl();
         this.passien.showPassien(tableKondisi);
     }
+    
+    public void refresh(){
+        this.setVisible(false);
+        CekKondisi kondisi = new CekKondisi();
+        
+        kondisi.setVisible(true);
+        this.dispose();
+//        this.passien.showPassien(tableKondisi);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +56,7 @@ public class CekKondisi extends javax.swing.JFrame {
         labelIdentitasPasien1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableKondisi = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,18 +146,27 @@ public class CekKondisi extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableKondisi);
 
+        jButton1.setText("Refresh");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCekKondisiLayout = new javax.swing.GroupLayout(panelCekKondisi);
         panelCekKondisi.setLayout(panelCekKondisiLayout);
         panelCekKondisiLayout.setHorizontalGroup(
             panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCekKondisiLayout.createSequentialGroup()
-                .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCekKondisiLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCekKondisiLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelCekKondisiLayout.createSequentialGroup()
+                            .addGap(61, 61, 61)
+                            .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelCekKondisiLayout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         panelCekKondisiLayout.setVerticalGroup(
@@ -155,7 +174,9 @@ public class CekKondisi extends javax.swing.JFrame {
             .addGroup(panelCekKondisiLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addGap(43, 43, 43)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -202,32 +223,40 @@ public class CekKondisi extends javax.swing.JFrame {
     private void tableKondisiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKondisiMouseClicked
         // TODO add your handling code here:
       int row = tableKondisi.getSelectedRow();
-      String namaIbu = tableKondisi.getValueAt(row, 1).toString();
-      String namaAnak = tableKondisi.getValueAt(row, 2).toString();
-      String tempatLahir = tableKondisi.getValueAt(row, 3).toString();
-      String tanggalLahir = tableKondisi.getValueAt(row, 4).toString();
-      String jenisKelamin = tableKondisi.getValueAt(row, 5).toString();
-      String tinggi = tableKondisi.getValueAt(row, 6).toString();
-      String umur = tableKondisi.getValueAt(row, 7).toString();
+      String id = tableKondisi.getValueAt(row, 1).toString();
+      String namaIbu = tableKondisi.getValueAt(row, 2).toString();
+      String namaAnak = tableKondisi.getValueAt(row, 3).toString();
+      String tempatLahir = tableKondisi.getValueAt(row, 4).toString();
+      String tanggalLahir = tableKondisi.getValueAt(row, 5).toString();
+      String jenisKelamin = tableKondisi.getValueAt(row, 6).toString();
+      String tinggi = tableKondisi.getValueAt(row, 7).toString();
+      String umur = tableKondisi.getValueAt(row, 8).toString();
       int jkValue = 0;
       if(jenisKelamin.equals("Laki-laki")){
-          jkValue = 1;
+          jkValue = 0;
       }else{
-          jkValue = 2;
+          jkValue = 1;
       }
         SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
         try {
             java.util.Date date = formater.parse(tanggalLahir);
                UpdateDelete updScrenn = new 
-        UpdateDelete(namaIbu, namaAnak, tempatLahir,jkValue , umur, tinggi, date);
+               UpdateDelete(namaIbu, namaAnak, tempatLahir,jkValue , umur, tinggi, date , id);
                updScrenn.setVisible(true);
                
         } catch (ParseException ex) {
             Logger.getLogger(CekKondisi.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+      
      
       
     }//GEN-LAST:event_tableKondisiMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        refresh();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +295,7 @@ public class CekKondisi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dasar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelIdentitasPasien1;
     private javax.swing.JLabel logoIdentitasPasien1;

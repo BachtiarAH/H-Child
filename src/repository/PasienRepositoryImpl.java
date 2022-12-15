@@ -59,6 +59,7 @@ public class PasienRepositoryImpl implements PassienRepositoryInterface{
     public void showPasien(JTable table) {
         String query = "select * from pasien";
         model.addColumn("No");
+        model.addColumn("ID pasien");
         model.addColumn("Nama Ibu");
         model.addColumn("Nama Anak");
         model.addColumn("Tempat Lahir");
@@ -110,7 +111,7 @@ public class PasienRepositoryImpl implements PassienRepositoryInterface{
                 }
                 count++;
                 model.addRow(new Object[]{
-                     count , res.getString("nama_ibu")
+                     count , res.getString("id_pasien") , res.getString("nama_ibu")
                         , res.getString("nama_anak") 
                         , res.getString("tempat_lahir") 
                         , res.getString("tanggal_lahir") 
@@ -127,5 +128,56 @@ public class PasienRepositoryImpl implements PassienRepositoryInterface{
             Logger.getLogger(PasienRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public boolean updatePasien(Pasien pasien) {
+        boolean isSucces = false;
+        String query =  "UPDATE `pasien` SET "
+                + "`nama_anak`= ?,"
+                + "`nama_ibu`= ?,"
+                + "`tempat_lahir`= ?,"
+                + "`jenis_kelamin`= ?,"
+                + "`tanggal_lahir`= ?,"
+                + "`tinggiBadan`= ?,"
+                + "`umur`= ? "
+                + "WHERE id_pasien = ?";
+        System.out.println(query);
+        try {
+            PreparedStatement pst = this.Connection.prepareStatement(query);
+            pst.setString(1, pasien.getNamaAnak());
+            pst.setString(2, pasien.getNamaIbu());
+            pst.setString(3, pasien.getTempatLahir());
+            pst.setString(4, pasien.getJenisKelamin());
+            pst.setDate(5, pasien.getTanggalLahir());
+            pst.setInt(6, pasien.getTinggiBadan());
+            pst.setInt(7, pasien.getUmur());
+            pst.setInt(8, pasien.getId());
+            pst.execute();
+            isSucces = true;
+        } catch (SQLException e) {
+            System.out.println("error in PasienRepo in method updatepasien "+e);
+            isSucces = false;
+        }
+        return isSucces;
+    }
+
+
+    
+    @Override
+    public boolean deletePasien(int id){
+        boolean isSucces = false;
+        String query =  "DELETE FROM `pasien` WHERE id_pasien = ?";
+        System.out.println(query);
+        try {
+            PreparedStatement pst = this.Connection.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.execute();
+            isSucces = true;
+        } catch (SQLException e) {
+            System.out.println("error in PasienRepo in method updatepasien "+e);
+            isSucces = false;
+        }
+        return isSucces;
+    }
+    
     
 }
