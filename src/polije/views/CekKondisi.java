@@ -29,6 +29,7 @@ public class CekKondisi extends javax.swing.JFrame {
         initComponents();
         this.passien = new PassienServiceImpl();
         this.passien.showPassien(tableKondisi);
+        
     }
     
     public void refresh(){
@@ -57,6 +58,9 @@ public class CekKondisi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableKondisi = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,6 +157,17 @@ public class CekKondisi extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/home.png"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Home");
+
         javax.swing.GroupLayout panelCekKondisiLayout = new javax.swing.GroupLayout(panelCekKondisi);
         panelCekKondisi.setLayout(panelCekKondisiLayout);
         panelCekKondisiLayout.setHorizontalGroup(
@@ -160,33 +175,48 @@ public class CekKondisi extends javax.swing.JFrame {
             .addGroup(panelCekKondisiLayout.createSequentialGroup()
                 .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
-                    .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCekKondisiLayout.createSequentialGroup()
-                            .addGap(61, 61, 61)
-                            .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelCekKondisiLayout.createSequentialGroup()
-                            .addGap(28, 28, 28)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCekKondisiLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(panelCekKondisiLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCekKondisiLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(40, 40, 40))
+                    .addComponent(jLabel11))
+                .addGap(37, 37, 37))
         );
         panelCekKondisiLayout.setVerticalGroup(
             panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCekKondisiLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGroup(panelCekKondisiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelIdentitasPasien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCekKondisiLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)))
+                .addGap(15, 15, 15)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Logo sunting.png"))); // NOI18N
 
         javax.swing.GroupLayout dasarLayout = new javax.swing.GroupLayout(dasar);
         dasar.setLayout(dasarLayout);
         dasarLayout.setHorizontalGroup(
             dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dasarLayout.createSequentialGroup()
-                .addGap(0, 640, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(panelCekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         dasarLayout.setVerticalGroup(
@@ -194,6 +224,10 @@ public class CekKondisi extends javax.swing.JFrame {
             .addGroup(dasarLayout.createSequentialGroup()
                 .addComponent(panelCekKondisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(dasarLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,6 +292,13 @@ public class CekKondisi extends javax.swing.JFrame {
         refresh();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new home().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -296,6 +337,9 @@ public class CekKondisi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dasar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelIdentitasPasien1;
     private javax.swing.JLabel logoIdentitasPasien1;
