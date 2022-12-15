@@ -6,6 +6,7 @@ package polije.service;
 
 import java.util.Date;
 import java.time.LocalDate;
+import javax.swing.JTable;
 
 /**
  *
@@ -15,4 +16,5 @@ public interface PassienServiceInterface {
     
     public boolean addPasien(String namaAnak , String namaIbu , String tempatLahir , String jenisKelamin , java.sql.Date tanggalLahir , int tinggiBadan , int umur);
     public int getAge(Date localDate);
+    public void showPassien(JTable table);
 }
