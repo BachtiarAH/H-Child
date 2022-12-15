@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 07:14 AM
+-- Generation Time: Dec 15, 2022 at 04:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,15 +34,20 @@ CREATE TABLE `pasien` (
   `tempat_lahir` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(255) NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `tinggiBadan` int(11) NOT NULL
+  `tinggiBadan` int(11) NOT NULL,
+  `umur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `nama_anak`, `nama_ibu`, `tempat_lahir`, `jenis_kelamin`, `tanggal_lahir`, `tinggiBadan`) VALUES
-(1, 'jan Etes', 'Selvi Ananda', 'surakarta', 'laki laki', '2016-12-14', 100);
+INSERT INTO `pasien` (`id_pasien`, `nama_anak`, `nama_ibu`, `tempat_lahir`, `jenis_kelamin`, `tanggal_lahir`, `tinggiBadan`, `umur`) VALUES
+(1, 'jan Etes', 'Selvi Ananda', 'surakarta', 'laki laki', '2016-12-14', 100, 0),
+(3, 'anak', 'ibu', 'banyuwangi', 'Perempuan', '1970-01-01', 12, 0),
+(4, 'adoasodk', 'oasd', 'asdasd', 'Laki-laki', '1970-01-01', 50, 12),
+(5, 'asd', 'rahasia', 'asd', 'Laki-laki', '1970-01-01', 1, 6),
+(6, 'anak', 'ibu', 'banyuwangi', 'Laki-laki', '1970-01-01', 120, 5);
 
 --
 -- Indexes for dumped tables
@@ -62,7 +67,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
