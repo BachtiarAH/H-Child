@@ -309,26 +309,37 @@ public class home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panelIdentitasPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasienMouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new TambahPasien().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_panelIdentitasPasienMouseClicked
-
-    private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien1MouseClicked
+    private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {                                                   
         // TODO add your handling code here:
         CekKondisi cekKondisi = new CekKondisi();
+        this.setVisible(false);
         cekKondisi.setVisible(true);
-    }//GEN-LAST:event_panelIdentitasPasien1MouseClicked
+        this.dispose();
+    }                                                  
 
-
+/*
     private void panelIdentitasPasien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien1MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         new CekKondisi().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelIdentitasPasien1MouseClicked
+*/
+    private void panelIdentitasPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasienMouseClicked
+        // TODO add your handling code here:
+        TambahPasien tbpas = new TambahPasien();
+        this.setVisible(false);
+        tbpas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_panelIdentitasPasienMouseClicked
+
+    private void panelIdentitasPasien2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelIdentitasPasien2MouseClicked
+        // TODO add your handling code here:
+        Gizi gizi = new Gizi();
+        this.setVisible(false);
+        gizi.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_panelIdentitasPasien2MouseClicked
 
     /**
      * @param args the command line arguments
