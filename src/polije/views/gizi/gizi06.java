@@ -5,6 +5,7 @@
 package polije.views.gizi;
 
 import java.awt.Image;
+import polije.views.Gizi;
 
 /**
  *
@@ -42,7 +43,7 @@ public class gizi06 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -54,6 +55,11 @@ public class gizi06 extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(640, 720));
 
         jPanel3.setBackground(new java.awt.Color(66, 83, 109));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/polije/assets/Kebutuhan Gizi.png")).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
         jLabel2.setMaximumSize(new java.awt.Dimension(70, 70));
@@ -232,6 +238,11 @@ public class gizi06 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
      * @param args the command line arguments
